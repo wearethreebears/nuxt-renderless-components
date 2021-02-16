@@ -1,9 +1,9 @@
 <template>
-	<FormLabel :label="label" :name="name">
+	<FormLabel :label="label" :name="id">
 		<input
 			:type="type"
 			:name="name"
-			:id="name"
+			:id="id"
 			@keyup="$emit('update:value', $event.target.value)"
 			@keydown="$emit('reset-field')"
 		/>
@@ -37,6 +37,19 @@ export default Vue.extend({
 			required: false,
 			type: String,
 		} as PropOptions<string>,
+
+		namePrefix: {
+			required: false,
+			type: String,
+		} as PropOptions<string>,
+	},
+
+	computed: {
+		id(): string {
+			return this.namePrefix
+				? `${this.namePrefix}-${this.name}`
+				: this.name
+		},
 	},
 })
 </script>

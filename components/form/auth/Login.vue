@@ -4,36 +4,35 @@
 			<FormInput
 				label="Email"
 				name="email"
+				name-prefix="login"
 				type="email"
 				:value.sync="email"
 				@reset-field="errors.clear('email')"
 			/>
 		</FormGroup>
 
-		<FormGroup
-			:error="errors.get('password')"
-			@keyup="errors.clear('password')"
-		>
+		<FormGroup :error="errors.get('password')" @keyup="errors.clear('password')">
 			<FormInput
 				label="Password"
 				name="password"
 				type="password"
+				name-prefix="login"
 				:value.sync="password"
 				@reset-field="errors.clear('password')"
 			/>
 		</FormGroup>
-		<button type="submit" class="bg-blue-500 text-white" value="">
-			Submit
-		</button>
+		<!--<NuxtButton type="submit">Submit</NuxtButton>-->
 	</FormWrapper>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import NuxtButton from '~/components/button/NuxtButton.vue'
 
 import { HelperFormErrors } from '~/helpers/form/HelperFormErrors.ts'
 
 export default Vue.extend({
+	components: { NuxtButton },
 	data() {
 		return {
 			email: '' as string,

@@ -23,28 +23,24 @@
 				label="Email"
 				name="email"
 				type="email"
+				name-prefix="register"
 				:value.sync="email"
 				@reset-field="errors.clear('email')"
 			/>
 		</FormGroup>
 
-		<FormGroup
-			:error="errors.get('password')"
-			@keyup="errors.clear('password')"
-		>
+		<FormGroup :error="errors.get('password')" @keyup="errors.clear('password')">
 			<FormInput
 				label="Password"
 				name="password"
 				type="password"
+				name-prefix="register"
 				:value.sync="password"
 				@reset-field="errors.clear('password')"
 			/>
 		</FormGroup>
 
-		<FormGroup
-			:error="errors.get('confirm_password')"
-			@keyup="errors.clear('confirm_password')"
-		>
+		<FormGroup :error="errors.get('confirm_password')" @keyup="errors.clear('confirm_password')">
 			<FormInput
 				label="Password"
 				name="confirm_password"
@@ -53,9 +49,8 @@
 				@reset-field="errors.clear('confirm_password')"
 			/>
 		</FormGroup>
-		<button type="submit" class="bg-blue-500 text-white" value="">
-			Submit
-		</button>
+
+		<!--<NuxtButton type="submit">Submit</NuxtButton>-->
 	</FormWrapper>
 </template>
 
